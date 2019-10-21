@@ -35,8 +35,6 @@ func OKWithMeta(w http.ResponseWriter, data interface{}, message string, meta Me
 }
 
 func OK(w http.ResponseWriter, data interface{}, message string) {
-	meta := MetaInfo{
-		HttpStatus: 200,
-	}
+	meta := MetaInfo{}
 	OKWithMeta(w, data, message, meta)
 }
