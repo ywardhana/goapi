@@ -39,6 +39,18 @@ func OK(w http.ResponseWriter, data interface{}, message string) {
 	OKWithMeta(w, data, message, meta)
 }
 
+func Created(w http.ResponseWriter, data interface{}, message string) {
+	meta := MetaInfo{
+		HttpStatus: 201,
+	}
+	response := Response{
+		Data:    data,
+		Message: message,
+		Meta:    meta,
+	}
+	Write(w, response)
+}
+
 func Error(w http.ResponseWriter, err error, httpStatus int) {
 	meta := MetaInfo{
 		HttpStatus: httpStatus,
